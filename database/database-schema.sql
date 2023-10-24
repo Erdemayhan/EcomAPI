@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE customers(
   customer_id int AUTO_INCREMENT PRIMARY KEY,
   customer_name varchar(50) NOT NULL,
-  customer_email VARCHAR(50) NOT NULL
+  customer_email VARCHAR(50) NOT NULL,
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS orders;

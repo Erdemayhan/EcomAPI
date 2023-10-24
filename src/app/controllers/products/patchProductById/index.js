@@ -1,19 +1,24 @@
+const modifyProductById = require("~root/actions/products/modifyProductById");
 const handleAPIError = require("~root/utils/handleAPIError");
-const createNewProduct = require("~root/actions/products/createNewProduct");
 
-const postNewProduct = async (req, res) => {
+const patchProductById = async (req, res) => {
+  const { productId } = req.params;
   const { productName, productPrice, productStock } = req.body;
+
   try {
-    const { products } = await createNewProduct({
+    const { product } = await modifyProductById({
+      productId,
       productName,
       productPrice,
       productStock
     });
+
     res.status(201).send({
-      products
+      product
     });
   } catch (err) {
     handleAPIError(res, err);
   }
 };
-module.exports = postNewProduct;
+
+module.exports = patchProductById;
